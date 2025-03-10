@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "Enter marks:"
+echo ""
+read -p "Maths: " math
+read -p "Science: " sci
+read -p "English: " eng
+
+if [[ $math -lt 0 ]] || [[ $sci -lt 0 ]] || [[ $eng -lt 0 ]];then
+        echo -e "\nError: Enter correct marks\nMinimum marks per subject is 0"
+elif [[ $math -gt 100 ]] || [[ $sci -gt 100 ]] || [[ $eng -gt 100 ]];then
+        echo -e "\nError: Enter correct marks\nMaximum marks per subject is 100"
+else
+        total=$(( $math + $sci + $eng ))
+        average=$(( $total/3 ))
+
+        if [[ $average -ge 50 ]];then
+               result="Pass"
+        else
+               result="Fail"
+        fi
+
+        total=$(( $math + $sci + $eng ))
+        average=$(( $total/3 ))
+
+        if [[ $average -ge 50 ]];then
+              result="Pass"
+        else
+              result="Fail"
+        fi
+
+        echo ""
+        echo "Total: $total"
+        echo "Average: $average"
+        echo "Result: $result"
+fi
